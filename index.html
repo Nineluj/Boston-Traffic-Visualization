@@ -93,7 +93,7 @@
                             [{name: "traffic", commonname: "Traffic", color: "#ff0000", render: function(){renderTraffic();}},
                             {name: "crash", commonname: "Crash\ Area", color: "", render: function(){renderCrashS();}},
                             {name: "wacc", commonname: "Accidents", color: "ff0000", render: function(){renderWaze("Data/Accidents.csv", "#ff0000");}},
-                            {name: "wgen", commonname: "Hazard", color: "", render: function(){renderWaze("Data/General_Hazards.csv", "#00ff00");}},
+                            //{name: "wgen", commonname: "Hazard", color: "", render: function(){renderWaze("Data/General_Hazards.csv", "#00ff00");}},
                             {name: "wpot", commonname: "Pot\ hole", color: "", render: function(){renderWaze("Data/Pot_holes.csv", "#0000ff");}},
                             {name: "wclo", commonname: "Closing", color: "", render: function(){renderWaze("Data/Road_closed_event.csv", "#ff8000");}},
                             {name: "wcon", commonname: "Construction", color: "", render: function(){renderWaze("Data/Road_construction.csv", "#ffff00");}}];
@@ -187,14 +187,6 @@
                 for(var d in renderingObjects){
                     renderif(renderingObjects[d].name, renderingObjects[d].render);
                 }
-                
-                //renderTraffic();
-                //renderCrashS();
-                //renderWaze("Data/Accidents.csv", "#ff0000");
-//                renderWaze("Data/General_Hazards.csv", "#00ff00");
-                //renderWaze("Data/Pot_holes.csv", "#0000ff");
-                ////renderWaze("Data/Road_closed_event.csv", "#ff8000");
-                //renderWaze("Data/Road_construction.csv", "#ffff00");
             }
 
 
