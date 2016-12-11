@@ -41,7 +41,7 @@ function generateTable(file, container) {
     $.get(file, function (data) {
 
 // start the table
-        var html = '<table">';
+        var html = '<table>';
 
 // split into lines
         var rows = data.split("\n");
@@ -54,10 +54,10 @@ function generateTable(file, container) {
 
 // split line into columns
             var columns = ourrow.split(",");
-
-            html += "<td>" + columns[0] + "</td>";
-            html += "<td>" + columns[1] + "</td>";
-            html += "<td>" + columns[2] + "</td>";
+            
+            for(var c in columns){
+                html += "<td>" + columns[c] + "</td>";
+            }
 
 // close row
             html += "</tr>";

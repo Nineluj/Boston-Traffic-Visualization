@@ -1,0 +1,1 @@
+function join(a, b, c){for(var d in a){var u = b.find(function(e){return a[d].TRIP_ID == e.TRIP_ID;}); if(u){c.push({daddress: a[d].DROPADDRESS, dlat: a[d].DROPLAT, dlng: a[d].DROPLONG, dtime: a[d].DROPTIME, id: u.TRIP_ID, uaddress: u.PICKUPADDRESS, ulat: u.PICKUPLAT, ulng: u.PICKUPLONG, utime: u.PICKUPTIME});}}}
