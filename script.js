@@ -16,10 +16,9 @@ function transformToAssocArray( prmstr ) {
 var params = getSearchParameters();
 
 function searchParam(name, deflt){
-    for(var elements in params){
-        if(elements[0] == name){
-            return elements[1];
-        }
+    if(params[name]){
+        return params[name];
+    } else {
+        return deflt;
     }
-    return deflt;
 }
