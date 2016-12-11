@@ -24,7 +24,7 @@
                 overflow: hidden;
                 background-color: #333;
             }
-
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
             li {
                 float: left;
             }
@@ -43,10 +43,13 @@
             /* Always set the map height explicitly to define the size of the div
              * element that contains the map. */
             #map {
-                height: 95%;
+                height: 100%;
             }
             #header{
-                height: 5%;
+                height: 19px;
+                position: absolute;
+                z-index: 150;
+                width: 100%;
             }
             /* Optional: Makes the sample page fill the window. */
             html, body {
@@ -62,7 +65,7 @@
                 width: 130px;
                 z-index: 100;
                 position: fixed;
-                margin-top: 10px;
+                margin-top: 55px;
             }
 
             #overlay a, 
@@ -132,26 +135,39 @@
                     map: map
                 });
             }
+            
+            function renderWaze(filename, color){
+                $.get(filename, function(d){
+                    var data = JSON.parse(CSV2JSON(d));
+                    for(var p in data){
+                        var cityCircle = new google.maps.Circle({
+                        strokeColor: color,
+                        strokeOpacity: 0.35,
+                        strokeWeight: 2,
+                        fillColor: color,
+                        fillOpacity: 0.3,
+                        map: map,
+                        center: {lat: +data[p].locy, lng: +data[p].locx},
+                        radius: 14
+                    });
+                    }
+                });
+            }
 
             function initMap() {
                 map = new google.maps.Map(document.getElementById('map'), {
-                    zoom: 11,
-                    center: {lat: 42.3601, lng: -71.0589},
+                    zoom: 14,
+                    center: {lat: 42.35859547437996, lng: -71.07286921502686},
                     clickableIcons: false
                 });
                 
                 renderTraffic();
                 renderCrashS();
-                $.get("Data/Accidents.csv", function(d){
-                    var data = JSON.parse(CSV2JSON(d));
-                    for(var p in data){
-                        var marker = new google.maps.Marker({
-                            position: {lat: +data[p].locy, lng: +data[p].locx},
-                            map: map,
-                            icon: imgacc
-                        });
-                    }
-                });
+                renderWaze("Data/Accidents.csv", "#ff0000");
+                renderWaze("Data/General_Hazard.csv", "#00ff00");
+                renderWaze("Data/Pot_holes.csv", "#0000ff");
+                renderWaze("Data/Road_closed_event.csv", "#ff8000");
+                renderWaze("Data/Road_construction.csv", "#ffff00");
             }
 
 
