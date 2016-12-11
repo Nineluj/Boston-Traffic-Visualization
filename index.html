@@ -12,7 +12,7 @@
             $.getScript("key.js").done(function () {
                 $.getScript("https://maps.googleapis.com/maps/api/js?key=" + GOOGLE_API_KEY + "&callback=initMap");
             }).fail(function () {
-                GOOGLE_API_KEY = AIzaSyBjwtHa2pv3s7cE5GpROOF5zikYLbRWyC8;
+                GOOGLE_API_KEY = "AIzaSyBjwtHa2pv3s7cE5GpROOF5zikYLbRWyC8";
                 $.getScript("https://maps.googleapis.com/maps/api/js?key=" + GOOGLE_API_KEY + "&callback=initMap");
             });
         </script>
@@ -91,14 +91,15 @@
         </div>
         <div id="map"></div>
         <script async defer>
-            var img-acc = "";
+            var imgacc = "https://raw.githubusercontent.com/TheGuy191919/Boston-Traffic-Visualization/master/Icon/accident.png";
+            var imgpot = "https://raw.githubusercontent.com/TheGuy191919/Boston-Traffic-Visualization/master/Icon/pothole.png";
+            var imghaz = "https://raw.githubusercontent.com/TheGuy191919/Boston-Traffic-Visualization/master/Icon/hazard.png";
+            var imgclo = "https://raw.githubusercontent.com/TheGuy191919/Boston-Traffic-Visualization/master/Icon/closed.png";
+            var imgcon = "https://raw.githubusercontent.com/TheGuy191919/Boston-Traffic-Visualization/master/Icon/construction.png";
 
-            function initMap() {
-                var map = new google.maps.Map(document.getElementById('map'), {
-                    zoom: 11,
-                    center: {lat: 42.3601, lng: -71.0589},
-                    clickableIcons: false
-                });
+            var map = {};
+
+            function renderTraffic(){
                 // Congestion data
                 var citymap = station_flattened;
                 for (var station in station_flattened) {
@@ -114,10 +115,9 @@
                         radius: citymap[station].count / 2
                     });
                 }
-                
-                
-
-
+            }
+            
+            function renderCrashS(){
                 //Crash data
                 var pCrashLayer = new google.maps.KmlLayer({
                     url: 'https://raw.githubusercontent.com/TheGuy191919/Boston-Traffic-Visualization/master/Data/HSIP_Pedestrian_Crash_Clusters.kml',
@@ -130,6 +130,27 @@
                 var cCrashLayer = new google.maps.KmlLayer({
                     url: 'https://raw.githubusercontent.com/TheGuy191919/Boston-Traffic-Visualization/master/Data/HSIP_Crash_Clusters.kml',
                     map: map
+                });
+            }
+
+            function initMap() {
+                map = new google.maps.Map(document.getElementById('map'), {
+                    zoom: 11,
+                    center: {lat: 42.3601, lng: -71.0589},
+                    clickableIcons: false
+                });
+                
+                renderTraffic();
+                renderCrashS();
+                $.get("Data/Accidents.csv", function(d){
+                    var data = JSON.parse(CSV2JSON(d));
+                    for(var p in data){
+                        var marker = new google.maps.Marker({
+                            position: {lat: +data[p].locy, lng: +data[p].locx},
+                            map: map,
+                            icon: imgacc
+                        });
+                    }
                 });
             }
 
