@@ -98,13 +98,13 @@
                 <script>
                     var renderingObjects = 
                             [{name: "traffic", commonname: "Traffic", color: "#ff0000", render: function(){renderTraffic();}},
-                            {name: "crash", commonname: "Crash\ Area", color: "", render: function(){renderCrashS();}},
-                            {name: "wacc", commonname: "Accidents", color: "ff0000", render: function(){renderWaze("Data/Waze_Data/Accidents.csv", "#ff0000");}},
+                            {name: "crash", commonname: "Crash\ Area", color: "#ff0000", render: function(){renderCrashS();}},
+                            {name: "wacc", commonname: "Accidents", color: "#ff0000", render: function(){renderWaze("Data/Waze_Data/Accidents.csv", "#ff0000");}},
                             //{name: "wgen", commonname: "Hazard", color: "", render: function(){renderWaze("Data/Waze_Data/General_Hazards.csv", "#00ff00");}},
-                            {name: "wpot", commonname: "Pot\ hole", color: "", render: function(){renderWaze("Data/Waze_Data/Pot_holes.csv", "#0000ff");}},
+                            {name: "wpot", commonname: "Pot\ hole", color: "#0000ff", render: function(){renderWaze("Data/Waze_Data/Pot_holes.csv", "#0000ff");}},
                             {name: "wclo", commonname: "Closing", color: "#00ff80", render: function(){renderWaze("Data/Waze_Data/Road_closed_event.csv", "##00ff80");}},
-                            {name: "wcon", commonname: "Construction", color: "", render: function(){renderWaze("Data/Waze_Data/Road_construction.csv", "#ffff00");}},
-                            {name: "taxi", commonname: "Taxi", color: "", render: function(){renderTaxi();}}];
+                            {name: "wcon", commonname: "Construction", color: "#ffff00", render: function(){renderWaze("Data/Waze_Data/Road_construction.csv", "#ffff00");}},
+                            {name: "taxi", commonname: "Taxi", color: "#0000FF", render: function(){renderTaxi();}}];
                         
                     for(var g in renderingObjects){
                         if(searchParam(renderingObjects[g].name, true)){
