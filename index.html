@@ -117,10 +117,8 @@
             var map = {};
 
             function renderTraffic(){
-                // Congestion data
                 var citymap = station_flattened;
                 for (var station in station_flattened) {
-                    // Add the circle for this city to the map.
                     var cityCircle = new google.maps.Circle({
                         strokeColor: '#00ffff',
                         strokeOpacity: 0.0,
@@ -135,7 +133,6 @@
             }
             
             function renderCrashS(){
-                //Crash data
                 var pCrashLayer = new google.maps.KmlLayer({
                     url: 'https://raw.githubusercontent.com/TheGuy191919/Boston-Traffic-Visualization/master/Data/HSIP_Pedestrian_Crash_Clusters.kml',
                     map: map,
