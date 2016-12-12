@@ -1,12 +1,11 @@
 # Boston Traffic Visualization
-
 https://theguy191919.github.io/Boston-Traffic-Visualization/
 
 ### Members of the group
-DiFederico, Alec
-Dong, Yiwen
-Hirn, Julian
-Thamthieng ,Intouch
+- DiFederico, Alec
+- Dong, Yiwen
+- Hirn, Julian
+- Thamthieng ,Intouch
 
 ### Project
 Julian did the Road Hazard Analysis page.  
