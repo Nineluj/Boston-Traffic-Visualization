@@ -138,18 +138,22 @@
                 //Crash data
                 var pCrashLayer = new google.maps.KmlLayer({
                     url: 'https://raw.githubusercontent.com/TheGuy191919/Boston-Traffic-Visualization/master/Data/HSIP_Pedestrian_Crash_Clusters.kml',
-                    map: map
+                    map: map,
+                    suppressInfoWindows: true,
+                    preserveViewport: true
                 });
                 var bCrashLayer = new google.maps.KmlLayer({
                     url: 'https://raw.githubusercontent.com/TheGuy191919/Boston-Traffic-Visualization/master/Data/HSIP_Bicycle_Crash_Clusters.kml',
-                    map: map
+                    map: map,
+                    suppressInfoWindows: true,
+                    preserveViewport: true
                 });
                 var cCrashLayer = new google.maps.KmlLayer({
                     url: 'https://raw.githubusercontent.com/TheGuy191919/Boston-Traffic-Visualization/master/Data/HSIP_Crash_Clusters.kml',
-                    map: map
+                    map: map,
+                    suppressInfoWindows: true,
+                    preserveViewport: true
                 });
-                map.setZoom(14);
-                map.setCenter({lat: 42.35859547437996, lng: -71.07286921502686});
             }
             
             function renderWaze(filename, color){
