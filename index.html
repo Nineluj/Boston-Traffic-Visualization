@@ -97,15 +97,15 @@
                             {name: "wacc", commonname: "Accidents", color: "ff0000", render: function(){renderWaze("Data/Waze_Data/Accidents.csv", "#ff0000");}},
                             //{name: "wgen", commonname: "Hazard", color: "", render: function(){renderWaze("Data/Waze_Data/General_Hazards.csv", "#00ff00");}},
                             {name: "wpot", commonname: "Pot\ hole", color: "", render: function(){renderWaze("Data/Waze_Data/Pot_holes.csv", "#0000ff");}},
-                            {name: "wclo", commonname: "Closing", color: "", render: function(){renderWaze("Data/Waze_Data/Road_closed_event.csv", "#ff8000");}},
+                            {name: "wclo", commonname: "Closing", color: "#00ff80", render: function(){renderWaze("Data/Waze_Data/Road_closed_event.csv", "##00ff80");}},
                             {name: "wcon", commonname: "Construction", color: "", render: function(){renderWaze("Data/Waze_Data/Road_construction.csv", "#ffff00");}},
                             {name: "taxi", commonname: "Taxi", color: "", render: function(){renderTaxi();}}];
                         
                     for(var g in renderingObjects){
                         if(searchParam(renderingObjects[g].name, true)){
-                            $("#overlay").children().append("<input type=\"checkbox\" name=\"" + renderingObjects[g].name + "\" checked />" + renderingObjects[g].commonname + "<br>");
+                            $("#overlay").children().append("<input type=\"checkbox\" name=\"" + renderingObjects[g].name + "\" checked />" + renderingObjects[g].commonname + "<img src=\"Icon/" + renderingObjects[g].name + ".png\" height=\"16\" width=\"16\"><br>");
                         } else {
-                            $("#overlay").children().append("<input type=\"checkbox\" name=\"" + renderingObjects[g].name + "\" />" + renderingObjects[g].commonname + "<br>");
+                            $("#overlay").children().append("<input type=\"checkbox\" name=\"" + renderingObjects[g].name + "\" />" + renderingObjects[g].commonname + "<img src=\"Icon/" + renderingObjects[g].name + ".png\" height=\"16\" width=\"16\"><br>");
                         }
                     }
                     $("#overlay").children().append("<input type=\"submit\" value=\"Refresh\">");
