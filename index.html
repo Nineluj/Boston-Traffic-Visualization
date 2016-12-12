@@ -88,7 +88,7 @@
             </ul>
         </div>
         <div id="overlay">
-            Check for 
+            Options 
             <form action="index.html" method="get">
                 <script>
                     var renderingObjects = 
@@ -98,7 +98,8 @@
                             //{name: "wgen", commonname: "Hazard", color: "", render: function(){renderWaze("Data/Waze_Data/General_Hazards.csv", "#00ff00");}},
                             {name: "wpot", commonname: "Pot\ hole", color: "", render: function(){renderWaze("Data/Waze_Data/Pot_holes.csv", "#0000ff");}},
                             {name: "wclo", commonname: "Closing", color: "", render: function(){renderWaze("Data/Waze_Data/Road_closed_event.csv", "#ff8000");}},
-                            {name: "wcon", commonname: "Construction", color: "", render: function(){renderWaze("Data/Waze_Data/Road_construction.csv", "#ffff00");}}];
+                            {name: "wcon", commonname: "Construction", color: "", render: function(){renderWaze("Data/Waze_Data/Road_construction.csv", "#ffff00");}},
+                            {name: "taxi", commonname: "Taxi", color: "", render: function(){renderTaxi();}}];
                         
                     for(var g in renderingObjects){
                         if(searchParam(renderingObjects[g].name, true)){
@@ -170,11 +171,17 @@
             }
             
             function renderTaxi(){
-                var directionsDisplay = new google.maps.DirectionsRenderer();
+                var rendererOptions = {
+                            preserveViewport: true,         
+                            suppressMarkers:true,
+                            routeIndex:i
+                };
+                
                 for(var i in taxidir){
-                    
+                    var directionsDisplay = new google.maps.DirectionsRenderer(rendererOptions);
+                    directionsDisplay.setMap(map);
+                    directionsDisplay.setDirections(taxidir[i]);
                 }
-                directionsDisplay.setDirections
             }
 
             function initMap() {
