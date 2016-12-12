@@ -9,6 +9,7 @@
         <script src="script.js" type="text/javascript"></script>
         <script src="Data/Traffic_Data/TrafficScript/station_counts.js" type="text/javascript"></script>
         <script src="routing.js" type="text/javascript"></script>
+        <script src="Data/Taxi_Data/directions.js" type="text/javascript"></script>
         <script>
             $.getScript("key.js").done(function () {
                 $.getScript("https://maps.googleapis.com/maps/api/js?key=" + GOOGLE_API_KEY + "&callback=initMap");
@@ -146,6 +147,8 @@
                     url: 'https://raw.githubusercontent.com/TheGuy191919/Boston-Traffic-Visualization/master/Data/HSIP_Crash_Clusters.kml',
                     map: map
                 });
+                map.setZoom(14);
+                map.setCenter({lat: 42.35859547437996, lng: -71.07286921502686});
             }
             
             function renderWaze(filename, color){
@@ -164,6 +167,14 @@
                     });
                     }
                 });
+            }
+            
+            function renderTaxi(){
+                var directionsDisplay = new google.maps.DirectionsRenderer();
+                for(var i in taxidir){
+                    
+                }
+                directionsDisplay.setDirections
             }
 
             function initMap() {
