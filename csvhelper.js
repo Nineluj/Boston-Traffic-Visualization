@@ -63,7 +63,7 @@ function generateTable(file, container) {
             html += "</tr>";
         })
 // close table
-        html += "</table><hr>";
+        html += "</table>";
 
 // insert into div
         $(container).append(html);

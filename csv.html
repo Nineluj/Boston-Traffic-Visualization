@@ -101,7 +101,7 @@
                           id: "taxi",
                           url: "Data/Taxi_Data/filtered10.csv"}];
                 for (var d in data) {
-                    $("#content").children().append("<li><h3>" + data[d].name + "</h3><div id=\"" + data[d].id + "\"></div></li>");
+                    $("#content").children().append("<li><h3>" + data[d].name + "</h3><div id=\"" + data[d].id + "\"></div><hr></li>");
                     generateTable(data[d].url, "#" + data[d].id);
                 }
             </script>
