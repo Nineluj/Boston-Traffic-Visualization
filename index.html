@@ -104,7 +104,7 @@
                             {name: "wpot", commonname: "Pot\ hole", color: "#0000ff", render: function(){renderWaze("Data/Waze_Data/Pot_holes.csv", "#0000ff");}},
                             {name: "wclo", commonname: "Closing", color: "#00ff80", render: function(){renderWaze("Data/Waze_Data/Road_closed_event.csv", "##00ff80");}},
                             {name: "wcon", commonname: "Construction", color: "#ffff00", render: function(){renderWaze("Data/Waze_Data/Road_construction.csv", "#ffff00");}},
-                            {name: "taxi", commonname: "Taxi", color: "#0000FF", render: function(){renderTaxi();}}];
+                            {name: "taxi", commonname: "Taxi Routes", color: "#0000FF", render: function(){renderTaxi();}}];
                         
                     for(var g in renderingObjects){
                         if(searchParam(renderingObjects[g].name, true)){
