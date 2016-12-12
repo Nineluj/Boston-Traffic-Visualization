@@ -62,12 +62,16 @@
             
             #overlay {
                 font-family: sans-serif;
-                background: grey;
+                background: lightgray;
                 padding: 5px;;
-                width: 200px;
+                width: 130px;
                 z-index: 100;
                 position: fixed;
                 margin-top: 55px;
+                opacity: 0.4;
+            }
+            #overlay:hover{
+                opacity: 1;
             }
 
             #overlay a, 
@@ -88,7 +92,7 @@
             </ul>
         </div>
         <div id="overlay">
-            Options 
+            Options <br>
             <form action="index.html" method="get">
                 <script>
                     var renderingObjects = 
@@ -103,9 +107,9 @@
                         
                     for(var g in renderingObjects){
                         if(searchParam(renderingObjects[g].name, true)){
-                            $("#overlay").children().append("<input type=\"checkbox\" name=\"" + renderingObjects[g].name + "\" checked />" + renderingObjects[g].commonname + "<img src=\"Icon/" + renderingObjects[g].name + ".png\" height=\"16\" width=\"16\"><br>");
+                            $("#overlay").children().append("<input type=\"checkbox\" name=\"" + renderingObjects[g].name + "\" checked /><img src=\"Icon/" + renderingObjects[g].name + ".png\" height=\"16\" width=\"16\">" + renderingObjects[g].commonname + "<br>");
                         } else {
-                            $("#overlay").children().append("<input type=\"checkbox\" name=\"" + renderingObjects[g].name + "\" />" + renderingObjects[g].commonname + "<img src=\"Icon/" + renderingObjects[g].name + ".png\" height=\"16\" width=\"16\"><br>");
+                            $("#overlay").children().append("<input type=\"checkbox\" name=\"" + renderingObjects[g].name + "\" /><img src=\"Icon/" + renderingObjects[g].name + ".png\" height=\"16\" width=\"16\">" + renderingObjects[g].commonname + "<br>");
                         }
                     }
                     $("#overlay").children().append("<input type=\"submit\" value=\"Refresh\">");
