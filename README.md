@@ -9,10 +9,10 @@ Yiwen did the Visualization and CSV page.
 This project is visualization of a variety of factors that contribute to Boston traffic
 - Alex gathered Accident data from Boston data portal
 - Julian gathered the following data from Waze
--- Accident
--- Pot Holes
--- Road Closing
--- Construction
+    - Accident
+    - Pot Holes
+    - Road Closing
+    - Construction
 - Intouch gathered pickup/dropoff data for Taxis
 - Yiwen gathered traffic density data from Mass Dot
 More details in individual folders
