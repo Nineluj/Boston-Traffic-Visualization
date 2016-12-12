@@ -7,7 +7,6 @@
         <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
         <script src="csvhelper.js" type="text/javascript"></script>
         <script src="script.js" type="text/javascript"></script>
-        <script src="TrafficScript/station_counts.js" type="text/javascript"></script>
         <style>
             #header ul {
                 list-style-type: none;
@@ -53,6 +52,18 @@
             #content div {
                 height: 200px;
                 overflow-y: auto;
+                margin: 20px;
+            }
+            #content ul {
+                list-style-type: none;
+                width: 90%;
+            }
+            #content h3 {
+                font: bold 20px/1.5 Helvetica, Verdana, sans-serif;
+            }
+            #content li {
+                padding: 10px;
+                overflow: auto;
             }
         </style>
     </head>
@@ -68,14 +79,30 @@
             <ul></ul>
             <script>
                 var data =
-                        [{name: "Traffic",
+                        [{name: "Traffic(MassDot)",
+                          id: "traf",
                           url: "Data/Traffic_Data/flattened.csv"},
-                         {name: "Accident",
-                          url: "Data/Waze_Data/Accidents.csv"}
-                        ];
+                         {name: "Accident(Waze)",
+                          id: "waze",
+                          url: "Data/Waze_Data/Accidents.csv"},
+                         {name: "Hazards(Waze)",
+                          id: "acc",
+                          url: "Data/Waze_Data/General_Hazards.csv"},
+                         {name: "Pot Holes(Waze)",
+                          id: "hole",
+                          url: "Data/Waze_Data/Pot_holes.csv"},
+                         {name: "Road Close(Waze)",
+                          id: "close",
+                          url: "Data/Waze_Data/Road_closed_event.csv"},
+                         {name: "Construction(Waze)",
+                          id: "hole",
+                          url: "Data/Waze_Data/Road_construction.csv"},
+                         {name: "Taxi Routes",
+                          id: "taxi",
+                          url: "Data/Taxi_Data/filtered10.csv"}];
                 for (var d in data) {
-                    $("#content").children().append("<li><h4></h4><div id=\"" + data[d].name + "\"></div></li>")
-                    generateTable(data[d].url, "#" + data[d].name);
+                    $("#content").children().append("<li><h3>" + data[d].name + "</h3><div id=\"" + data[d].id + "\"></div></li>");
+                    generateTable(data[d].url, "#" + data[d].id);
                 }
             </script>
         </div>

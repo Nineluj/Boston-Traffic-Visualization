@@ -41,7 +41,7 @@ function generateTable(file, container) {
     $.get(file, function (data) {
 
 // start the table
-        var html = '<table>';
+        var html = '<table border="1">';
 
 // split into lines
         var rows = data.split("\n");
