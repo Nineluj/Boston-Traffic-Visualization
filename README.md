@@ -1,24 +1,4 @@
 # Boston Traffic Visualization
-https://theguy191919.github.io/Boston-Traffic-Visualization/
 
-### Members of the group
-- DiFederico, Alec
-- Dong, Yiwen
-- Hirn, Julian
-- Thamthieng, Intouch
-
-### Project
-Julian did the Road Hazard Analysis page.  
-Yiwen did the Visualization and CSV page.  
-Intouch did the Taxi Analysis page.  
-
-This project is visualization of a variety of factors that contribute to Boston traffic
-- Alex gathered Accident data from Boston data portal
-- Julian gathered the following data from Waze
-    - Accident
-    - Pot Holes
-    - Road Closing
-    - Construction
-- Intouch gathered pickup/dropoff data for Taxis
-- Yiwen gathered traffic density data from Mass Dot
-More details in individual webpages.
+A fork of a project that I worked on. Forked so that I could put it up on my own website.
+See the original project at: https://github.com/TheGuy191919/Boston-Traffic-Visualization 
